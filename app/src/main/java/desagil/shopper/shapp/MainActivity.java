@@ -3,33 +3,21 @@ package desagil.shopper.shapp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA = 0;
-    String mCurrentPhotoPath;
 
     private void openCamera() {
-        File photo;
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         startActivity(intent);
         //nao finalizo o MainActivitivy porque precisa dele depois
-
-    }}
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     System.out.println("permissão concedida!");
-                    openCamera();
+                    openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
                 }
             }
         });
@@ -64,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         if(request == REQUEST_CAMERA) {
             // ...e a permissão foi de fato concedida, abrimos a SendActivity.
             if(results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera();
-
+                openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
+                //TODO: salvar a imagem e fazer com que ela seja enviada para algum lugar
             }
             // Senão, permanecemos na mesma activity e mostramos uma bolha de mensagem.
             else {

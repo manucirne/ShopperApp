@@ -30,7 +30,4 @@
     <!--Garante que a camera usará o flash-->
     <uses-feature android:name="android.hardware.camera.flash" /> <!--Ver se ela vai usar o flash sempre ou so quando precisar-->
 
-    <!--Imagem de tamanho real-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 </manifest>
