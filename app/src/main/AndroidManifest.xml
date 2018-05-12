@@ -18,4 +18,16 @@
         </activity>
     </application>
 
+    <!--Pedindo a permissão da camera-->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--Garante que a camera traseira será usada-->
+    <uses-feature android:name="android.hardware.camera" />
+
+    <!--Garante que a camera terá foco automático-->
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!--Garante que a camera usará o flash-->
+    <uses-feature android:name="android.hardware.camera.flash" /> <!--Ver necessidade de usar esse-->
+
 </manifest>
