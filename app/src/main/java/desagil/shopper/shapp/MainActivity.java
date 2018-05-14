@@ -14,9 +14,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA = 0;
 
     private void openCamera() {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        //Para abrir a pagina em que a foto sera tirada
+        Intent intent = new Intent(this, OpenCamera.class);
         startActivity(intent);
-        //nao finalizo o MainActivitivy porque precisa dele depois
+        finish();
     }
 
     @Override
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
                 }
                 else{
-                    System.out.println("permissão concedida!");
                     openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
                 }
             }
@@ -48,12 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int request, String[] permissions, int[] results) {
-        // Se o pedido de permissão foi para enviar SMS...
+        // Se o pedido de permissão foi para utilizar a camera....
         if(request == REQUEST_CAMERA) {
-            // ...e a permissão foi de fato concedida, abrimos a SendActivity.
+            // ...e a permissão foi de fato concedida, abrimos o OpenCamera.
             if(results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
-                //TODO: salvar a imagem e fazer com que ela seja enviada para algum lugar
+                openCamera();
             }
             // Senão, permanecemos na mesma activity e mostramos uma bolha de mensagem.
             else {
