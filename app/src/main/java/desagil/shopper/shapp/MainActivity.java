@@ -9,9 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA = 0;
+
 
     private void openCamera() {
         //Para abrir a pagina em que a foto sera tirada
@@ -25,7 +28,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonOpenCamera = (Button) findViewById(R.id.button_open_camera);
+        final EditText credentials_view = (EditText) findViewById(R.id.credentials_input);
+
+
+        final EditText password_view = (EditText) findViewById(R.id.password_input);
+
+
+        Button login_button = (Button) findViewById(R.id.login_button);
+
+        login_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String credentials = credentials_view.getText().toString();
+                String password = password_view.getText().toString();
+
+                if(credentials.equals("admin") && password.equals("admin")){
+                    openDeliveryActivity();
+                }
+                else{
+                    mostrarTorrada("admin ; admin");
+                }
+
+            }
+
+        });
+
+
+        Button buttonOpenCamera = (Button) findViewById(R.id.open_camera_button);
 
         buttonOpenCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +75,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Todo: Criar a classe da Delivery Activity
+    private void openDeliveryActivity(){
+        openCamera();
+        finish();
+    }
+    //TODO: Mudar o nome desse método
+    private void mostrarTorrada(String message){
+        Utils.showToast(this, message);
+    }
+
     @Override
     public void onRequestPermissionsResult(int request, String[] permissions, int[] results) {
         // Se o pedido de permissão foi para utilizar a camera....
@@ -56,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
             // Senão, permanecemos na mesma activity e mostramos uma bolha de mensagem.
             else {
-                Utils.showToast(this, "Você precisa conceder permissão!");
+                mostrarTorrada("Você precisa conceder permissão!");
             }
         }
     }
