@@ -1,6 +1,4 @@
-package com.signatureshapp.signaturecapture;
-
-//desagil.shopper.shapp
+package desagil.shopper.shapp
 //Código: https://www.youtube.com/watch?v=15B3L78jWfI
 
 import android.content.Context;
