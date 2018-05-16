@@ -58,6 +58,7 @@ public class OpenCamera extends AppCompatActivity {
             public void onClick(View view) {
                 if (imageBitmap == null){
                     System.out.println("Não existe nenhuma foto no momento");
+                    showWarning("É necessário uma foto para poder prosseguir");
                 }
                 else{
                     openNextDeliveryActivity();
@@ -71,6 +72,10 @@ public class OpenCamera extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
+    }
+
+    private void showWarning(String message){
+        Utils.showToast(this, message);
     }
 
     @Override
