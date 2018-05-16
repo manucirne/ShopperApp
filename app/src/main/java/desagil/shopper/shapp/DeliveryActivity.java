@@ -27,16 +27,15 @@ public class DeliveryActivity extends AppCompatActivity {
     }
 
 
-    private void openJumpActivity(String boxes) {
+    private void openPassActivity() {
         Intent intent = new Intent(this, JumpActivity.class);
-        intent.putExtra("boxes",boxes);
         startActivity(intent);
 
         finish();
     }
 
-    private void openSingnActivity(String boxes) {
-        Intent intent = new Intent(this, SingnActivity.class);
+    private void openOpenSingnature(String boxes) {
+        Intent intent = new Intent(this, OpenSignature.class);
         intent.putExtra("boxes",boxes);
         startActivity(intent);
 
@@ -61,6 +60,7 @@ public class DeliveryActivity extends AppCompatActivity {
 
         Button buttonSaveB = (Button) findViewById(R.id.saveboxes);
         Button buttonentrega = (Button) findViewById(R.id.entrega);
+        Button buttonpass = (Button) findViewById(R.id.pass);
 
 
         buttonSaveB.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +82,17 @@ public class DeliveryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boxesText.setText(boxes);
-                openSingnActivity(boxes);
+                openOpenSingnature(boxes);
+
+
+            }
+
+        });
+
+        buttonpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPassActivity();
 
 
             }

@@ -37,7 +37,7 @@ public class JumpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_main);
+        setContentView(R.layout.activity_jump);
 
         //criar botão para envair a justificativa
         Button button_send = (Button) findViewById(R.id.button_send);
