@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".OpenCamera"></activity>
+        <activity android:name=".JumpActivity"></activity>
+        <activity android:name=".DeliveryActivity"></activity>
+        <activity android:name=".SignatureActivity"></activity>
+
     </application>
 
     <!--Pedindo a permissão da camera-->
