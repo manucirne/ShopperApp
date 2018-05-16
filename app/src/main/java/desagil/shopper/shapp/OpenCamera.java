@@ -27,15 +27,36 @@ public class OpenCamera extends AppCompatActivity {
         finish();
     }
 
+    private void openNextDeliveryActivity() {
+        // Exemplo de código para abrir uma activity. Especificamente, a SendActivity.
+        Intent intent = new Intent(this, NextDeliveryActivity.class);
+        intent.putExtra("imageViewCamera", imageViewCamera);
+        startActivity(intent);
+        //https://stackoverflow.com/questions/17878907/get-imageviews-image-and-send-it-to-an-activity-with-intent
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
         Button buttonPhoto = (Button)findViewById(R.id.button_photo);
+        Button buttonFinish = (Button)findViewById(R.id.button_finish);
 
         imageViewCamera = (ImageView)findViewById(R.id.imageView_camera);
 
+        buttonFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (imageViewCamera == null){
+                    Utils.showToast(this, "Você precisa tirar a foto antes de prosseguir");
+                }
+                else{
+                    openNextDeliveryActivity();
+                }
+            }
+        });
     }
 
     public void dispatchTakePictureIntent(View view) {
