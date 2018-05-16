@@ -2,18 +2,25 @@ package desagil.shopper.shapp;
 //Código: https://www.youtube.com/watch?v=15B3L78jWfI
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+
+
+
 
 public class OpenSignature extends View {
-
 
     public int width;
     public int height;
@@ -24,6 +31,9 @@ public class OpenSignature extends View {
     private float mX, mY;
     private static final float TOLERANCE = 5;
     Context context;
+
+
+
 
     public OpenSignature(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -39,8 +49,10 @@ public class OpenSignature extends View {
         mPaint.setStrokeWidth(4f);
     }
 
+
+
     @Override
-    protected void onSizeChanged (int w, int h, int oldw, int oldh){
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
         mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
@@ -48,43 +60,43 @@ public class OpenSignature extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas){
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
         canvas.drawPath(mPath, mPaint);
     }
 
-    private void startTouch(float x, float y){
+    private void startTouch(float x, float y) {
         mPath.moveTo(x, y);
         mX = x;
         mY = y;
     }
 
-    private void moveTouch(float x, float y){
+    private void moveTouch(float x, float y) {
         float dx = Math.abs(x - mX);
         float dy = Math.abs(y - mY);
-        if (dx >= TOLERANCE || dy >= TOLERANCE){
-            mPath.quadTo(mX, mY, (x+mX)/2, (y+mY)/2);
+        if (dx >= TOLERANCE || dy >= TOLERANCE) {
+            mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
             mX = x;
             mY = y;
         }
     }
 
-    public void clearCanvas(){
+    public void clearCanvas() {
         mPath.reset();
         invalidate();
     }
 
-    private void upTouch(){
+    private void upTouch() {
         mPath.lineTo(mX, mY);
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event){
+    public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
 
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startTouch(x, y);
                 invalidate();
@@ -101,4 +113,6 @@ public class OpenSignature extends View {
 
         return true;
     }
+
+
 }
