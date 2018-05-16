@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
+
 public class JumpActivity extends AppCompatActivity {
     String justification = "";
 
@@ -40,8 +43,8 @@ public class JumpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_jump);
 
         //criar botão para envair a justificativa
-        Button button_send = (Button) findViewById(R.id.button_send);
-        Button button_back = (Button) findViewById(R.id.button_back);
+        Button buttonSend = (Button) findViewById(R.id.button_send);
+        Button buttonBack = (Button) findViewById(R.id.button_back);
 
         //para pegar a mensagem
         final TextView text = (TextView) findViewById(R.id.textView);
@@ -49,7 +52,7 @@ public class JumpActivity extends AppCompatActivity {
 
 
         //Atividade do botão enviar - Vai para a página de próxima entrega:
-        button_send.setOnClickListener(new View.OnClickListener() {
+        buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //aqui tem que fazer algo com a variavel justification - enviar para o servidos
@@ -59,7 +62,7 @@ public class JumpActivity extends AppCompatActivity {
         });
 
         //Atividade do botão VOLTAR - Volta para a página de próxima descriçaõ:
-        button_send.setOnClickListener(new View.OnClickListener() {
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDeliveryActivity();
