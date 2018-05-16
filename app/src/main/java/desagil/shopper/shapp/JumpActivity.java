@@ -28,7 +28,7 @@ public class JumpActivity extends AppCompatActivity {
     //função para ir para DeliveryActivity NewDeliveryActivity
     private void openNewDeliveryActivity() {
         // Exemplo de código para abrir uma activity.
-        Intent intent = new Intent(this, NewDeliveryActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

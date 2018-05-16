@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class DeliveryActivity extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class DeliveryActivity extends AppCompatActivity {
     }
 
     private void openNewDeliveryActivity() {
-        Intent intent = new Intent(this, NewDeliveryActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
         finish();
@@ -48,6 +49,8 @@ public class DeliveryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_delivery);
         final TextView clientname = (TextView) findViewById(R.id.clientname);
         final TextView clientadress = (TextView) findViewById(R.id.clientadress);
+        final EditText editboxes = (EditText) findViewById(R.id.boxes);
+
 
         Intent intent = getIntent();
         nameC = intent.getStringExtra("name");
@@ -64,7 +67,7 @@ public class DeliveryActivity extends AppCompatActivity {
 
 
         buttonSaveB.setOnClickListener(new View.OnClickListener() {
-            String boxes = boxesText.getText().toString();
+            String boxes = editboxes.getText().toString();
 
             @Override
             public void onClick(View view) {
