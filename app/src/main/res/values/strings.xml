@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SHAPP</string>
+    <string name="hint_credential">Sua credencial</string>
+    <string name="hint_password">Sua senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="next_delivery_title">Sua próxima entrega</string>
+
+    <!-- In case of input error -->
+
+    <string name="error_credential">Sua credencial deve conter 5 dígitos</string>
+    <string name="error_password">Senha inválida, tente novamente</string>
+
 </resources>

@@ -6,14 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <EditText
+        android:id="@+id/credentials_input"
+        android:layout_width="272dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/hint_credential"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="272dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/hint_password"
+        app:layout_constraintEnd_toEndOf="@+id/credentials_input"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/credentials_input"
+        app:layout_constraintTop_toBottomOf="@+id/credentials_input" />
+
     <Button
-        android:id="@+id/button_open_camera"
+        android:id="@+id/login_button"
+        android:layout_width="165dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_button"
+        app:layout_constraintEnd_toEndOf="@+id/password_input"
+        app:layout_constraintStart_toStartOf="@+id/password_input"
+        app:layout_constraintTop_toBottomOf="@+id/password_input" />
+
+    <Button
+        android:id="@+id/open_camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Camera"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="231dp" />
-
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="testar camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
