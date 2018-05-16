@@ -36,7 +36,7 @@ public class DeliveryActivity extends AppCompatActivity {
     }
 
     private void openOpenSingnature(String boxes) {
-        Intent intent = new Intent(this, OpenSignature.class);
+        Intent intent = new Intent(this, SignatureActivity.class);
         intent.putExtra("boxes",boxes);
         startActivity(intent);
 

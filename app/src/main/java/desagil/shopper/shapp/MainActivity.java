@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 String credentials = credentials_view.getText().toString();
                 String password = password_view.getText().toString();
 
-                if(credentials.equals("admin") && password.equals("admin")){
+                if(credentials.equals("") && password.equals("")){
                     openDeliveryActivity();
                 }
                 else{
-                    mostrarTorrada("admin ; admin");
+                    mostrarTorrada("eh tudo vazio");
                 }
 
             }
@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Todo: Criar a classe da Delivery Activity
     private void openDeliveryActivity(){
-        openCamera();
+        Intent intent = new Intent(this, NextDeliveryActivity.class);
+        startActivity(intent);
         finish();
     }
     //TODO: Mudar o nome desse método

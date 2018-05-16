@@ -10,6 +10,7 @@ import android.widget.Button;
 public class SignatureActivity extends AppCompatActivity {
 
 
+
     //função para ir para OpenCamera
     private void openOpenCamera() {
         // Exemplo de código para abrir uma activity.
@@ -18,32 +19,43 @@ public class SignatureActivity extends AppCompatActivity {
         finish();
     }
 
+    private OpenSignature openSignature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signature);
 
+        //TODO: criar o botao de enviar no xml
         //criar botão para envair a justificativa
-        Button buttonContinue = (Button) findViewById(R.id.button);
+        Button buttonSend = (Button) findViewById(R.id.button_send);
 
         //TODO: fazer a parte de pegar assinatura:
-        //aqui em baixo é pra pegar de text view
-        //final TextView text = (TextView) findViewById(R.id.textView);
-        //text.setText(justification);
+        openSignature = (OpenSignature) findViewById(R.id.signature);
 
+        Button clear_signature = (Button) findViewById((R.id.clear_canvas_button));
 
-        //Atividade do botão enviar - Vai para a página de próxima entrega:
-        buttonContinue.setOnClickListener(new View.OnClickListener() {
+        clear_signature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearCanvas(v);
+            }
+        });
+
+        //Atividade do botão enviar - Vai parA A CAMERA:
+        buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //aqui tem que fazer algo com a assinatura p enviar para o servidos
                 openOpenCamera();
-
             }
-        });
 
+        });
     }
+    public void clearCanvas(View v){
+        openSignature.clearCanvas();
+    }
+
     ////
 
 
