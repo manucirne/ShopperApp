@@ -61,22 +61,10 @@ public class DeliveryActivity extends AppCompatActivity {
 
         final TextView boxesText = (TextView) findViewById(R.id.boxes);
 
-        Button buttonSaveB = (Button) findViewById(R.id.saveboxes);
         Button buttonentrega = (Button) findViewById(R.id.entrega);
         Button buttonpass = (Button) findViewById(R.id.pass);
 
 
-        buttonSaveB.setOnClickListener(new View.OnClickListener() {
-            String boxes = editboxes.getText().toString();
-
-            @Override
-            public void onClick(View view) {
-                boxesText.setText(boxes);
-
-
-            }
-
-        });
 
         buttonentrega.setOnClickListener(new View.OnClickListener() {
             String boxes = boxesText.getText().toString();
@@ -86,7 +74,6 @@ public class DeliveryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boxesText.setText(boxes);
                 openOpenSingnature(boxes);
-
 
             }
 

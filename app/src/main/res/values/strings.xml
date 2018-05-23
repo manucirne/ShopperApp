@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SHAPP</string>
+    <string name="app_name">Shopper</string>
     <string name="hint_credential">Sua credencial</string>
     <string name="hint_password">Sua senha</string>
     <string name="login_button">Entrar</string>

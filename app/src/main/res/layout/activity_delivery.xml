@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="0dp">
 
         <TextView
@@ -25,7 +25,9 @@
         <LinearLayout
             android:layout_width="400dp"
             android:layout_height="50dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
+
 
             <EditText
                 android:id="@+id/boxes"
@@ -35,32 +37,33 @@
                 android:layout_weight="1"
                 android:hint="Quantas caixas?" />
 
-            <Button
-                android:id="@+id/saveboxes"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="SALVAR" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="400dp"
             android:layout_height="100dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <Button
                 android:id="@+id/pass"
-                android:layout_width="200dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pular Entrega" />
+                android:text="Pular Entrega"
+                android:layout_marginLeft="12dp"
+                android:background="@color/green_shopper"
+                android:textColor="@color/blue_shopper"/>
 
             <Button
                 android:id="@+id/entrega"
-                android:layout_width="200dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Entregar" />
+                android:layout_marginLeft="10dp"
+                android:text="Entregar"
+                android:background="@color/green_shopper"
+                android:textColor="@color/blue_shopper"
+                />
         </LinearLayout>
     </LinearLayout>
 

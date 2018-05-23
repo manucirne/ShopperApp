@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SignatureActivity extends AppCompatActivity {
 
@@ -26,9 +27,23 @@ public class SignatureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signature);
 
+        String newString;
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle == null) {
+            newString = "2";
+        } else {
+            newString = bundle.getString("boxes");
+            newString = "3";
+        }
+
         //TODO: criar o botao de enviar no xml
         //criar botão para envair a justificativa
         Button buttonSend = (Button) findViewById(R.id.button_send);
+
+        //Texto antes da assinatura
+        TextView text = (TextView) findViewById(R.id.text_send);
+        text.setText("Foram recebidos " + newString + " volumes. Se você confirma assine abaixo:");
 
         //TODO: fazer a parte de pegar assinatura:
         openSignature = (OpenSignature) findViewById(R.id.signature);

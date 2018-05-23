@@ -28,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_DENIED) {
+
+            String[] permissions = new String[1];
+            permissions[0] = Manifest.permission.CAMERA;
+
+            ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
+        }
+
         final EditText credentials_view = (EditText) findViewById(R.id.credentials_input);
 
 
@@ -42,7 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 String credentials = credentials_view.getText().toString();
                 String password = password_view.getText().toString();
 
-                if(credentials.equals("") && password.equals("")){
+                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
+                        == PackageManager.PERMISSION_DENIED) {
+
+                    String[] permissions = new String[1];
+                    permissions[0] = Manifest.permission.CAMERA;
+
+                    ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
+                }
+                else if(credentials.equals("") && password.equals("")){
                     openDeliveryActivity();
                 }
                 else{
@@ -54,26 +71,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button buttonOpenCamera = (Button) findViewById(R.id.open_camera_button);
-
-        buttonOpenCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
-                        == PackageManager.PERMISSION_DENIED) {
-
-                    String[] permissions = new String[1];
-                    permissions[0] = Manifest.permission.CAMERA;
-
-                    ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
-                }
-                else{
-                    openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
-                }
-            }
-        });
-    }
+        //Button buttonOpenCamera = (Button) findViewById(R.id.open_camera_button);
+//
+//        buttonOpenCamera.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
+//                        == PackageManager.PERMISSION_DENIED) {
+//
+//                    String[] permissions = new String[1];
+//                    permissions[0] = Manifest.permission.CAMERA;
+//
+//                    ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
+//                }
+//                else{
+//                    openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
+//                }
+//            }
+//        });
+}
 
     //Todo: Criar a classe da Delivery Activity
     private void openDeliveryActivity(){
@@ -90,12 +107,8 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int request, String[] permissions, int[] results) {
         // Se o pedido de permissão foi para utilizar a camera....
         if(request == REQUEST_CAMERA) {
-            // ...e a permissão foi de fato concedida, abrimos o OpenCamera.
-            if(results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera();
-            }
-            // Senão, permanecemos na mesma activity e mostramos uma bolha de mensagem.
-            else {
+            // ...e a permissão não foi concedida, avisamos e pedimos novamente.
+            if(results.length > 0 && results[0] == PackageManager.PERMISSION_DENIED) {
                 mostrarTorrada("Você precisa conceder permissão!");
             }
         }

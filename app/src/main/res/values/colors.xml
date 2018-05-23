@@ -3,5 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="green_shopper">#8CCE70</color>
+    <color name="green_shopper">#05dd71</color>
+    <color name="blue_shopper">#0b0b61</color>
+    <color name="grey_shopper">#666666</color>
+
+
 </resources>
+

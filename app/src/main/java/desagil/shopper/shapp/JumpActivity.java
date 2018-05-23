@@ -27,11 +27,11 @@ public class JumpActivity extends AppCompatActivity {
         finish();
     }
 
-    //se mudar o nome da deliveryactivty mudar aqui **********88
-    //função para ir para DeliveryActivity NewDeliveryActivity
-    private void openNewDeliveryActivity() {
+
+    //função para ir para NextDeliveryActivity
+    private void openNextDeliveryActivity() {
         // Exemplo de código para abrir uma activity.
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, NextDeliveryActivity.class);
         startActivity(intent);
         finish();
     }
@@ -42,21 +42,22 @@ public class JumpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jump);
 
-        //criar botão para envair a justificativa
         Button buttonSend = (Button) findViewById(R.id.button_send);
         Button buttonBack = (Button) findViewById(R.id.button_back);
 
         //para pegar a mensagem
-        final TextView text = (TextView) findViewById(R.id.textView);
-        text.setText(justification);
+        final EditText text = (EditText) findViewById(R.id.TextJustif);
+        String justification = text.getText().toString();
+
 
 
         //Atividade do botão enviar - Vai para a página de próxima entrega:
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //aqui tem que fazer algo com a variavel justification - enviar para o servidos
-                openNewDeliveryActivity();  //NewDeliveryActivity - pag do wes (proxima entrega)
+                //aqui tem que fazer algo com a variavel justification - enviar para o servidor
+                //text.setText(justification);
+                openNextDeliveryActivity();  //NewDeliveryActivity - pag do wes (proxima entrega)
 
             }
         });

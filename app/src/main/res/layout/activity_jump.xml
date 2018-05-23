@@ -18,7 +18,8 @@
             android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:text="PULAR ENTREGA"
-            android:textSize="30dp" />
+            android:textSize="25dp"
+            android:textColor="@color/blue_shopper"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -41,16 +42,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:text="VOLTAR"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:background="@color/green_shopper"
+                android:textColor="@color/blue_shopper"/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/TextJustif"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="20dp"
-            android:text="ASDDSADSSADDSASADDSADSADS"
+            android:text=""
             android:textSize="20pt" />
 
         <Button
@@ -59,7 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="20dp"
-            android:text="Enviar" />
+            android:text="Enviar"
+            android:background="@color/green_shopper"
+            android:textColor="@color/blue_shopper"/>
 
     </LinearLayout>
 
