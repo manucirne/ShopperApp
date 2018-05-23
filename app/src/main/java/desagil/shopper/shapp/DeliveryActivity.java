@@ -13,6 +13,7 @@ public class DeliveryActivity extends AppCompatActivity {
     //String boxes = "";
     String nameC = "";
     String adressC = "";
+    String boxes = "";
 
     public void onBackPressed(){
         super.onBackPressed();
@@ -58,21 +59,19 @@ public class DeliveryActivity extends AppCompatActivity {
         clientname.setText(nameC);
         clientadress.setText(adressC);
 
-
-        final TextView boxesText = (TextView) findViewById(R.id.boxes);
-
         Button buttonentrega = (Button) findViewById(R.id.entrega);
         Button buttonpass = (Button) findViewById(R.id.pass);
 
 
 
         buttonentrega.setOnClickListener(new View.OnClickListener() {
-            String boxes = boxesText.getText().toString();
+           // String meio = editboxes.getText().toString();
 
 
             @Override
             public void onClick(View view) {
-                boxesText.setText(boxes);
+                boxes = editboxes.getText().toString();
+                editboxes.setText(boxes);
                 openOpenSingnature(boxes);
 
             }

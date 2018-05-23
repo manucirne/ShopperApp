@@ -27,23 +27,19 @@ public class SignatureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signature);
 
-        String newString;
+        Intent intent = getIntent();
+        String caixas = intent.getStringExtra("boxes");
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle == null) {
-            newString = "2";
-        } else {
-            newString = bundle.getString("boxes");
-            newString = "3";
-        }
+
 
         //TODO: criar o botao de enviar no xml
         //criar botão para envair a justificativa
         Button buttonSend = (Button) findViewById(R.id.button_send);
-
+        String texto = "Foram recebidos " + caixas + " volumes. Se você confirma assine abaixo:";
         //Texto antes da assinatura
-        TextView text = (TextView) findViewById(R.id.text_send);
-        text.setText("Foram recebidos " + newString + " volumes. Se você confirma assine abaixo:");
+        final TextView text = (TextView) findViewById(R.id.text_send);
+        text.setText(texto);
+        //text += texto;
 
         //TODO: fazer a parte de pegar assinatura:
         openSignature = (OpenSignature) findViewById(R.id.signature);

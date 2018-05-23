@@ -3,9 +3,11 @@ package desagil.shopper.shapp;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -24,8 +26,15 @@ public class OpenCamera extends AppCompatActivity {
     }
 
     private void openMainActivity() {
-        // Exemplo de código para abrir uma activity. Especificamente, a SendActivity.
-        Intent intent = new Intent(this, MainActivity.class);
+        Log.i("Send Email","email teste");
+        Intent emailSend = new Intent(Intent.ACTION_SEND);
+        emailSend.setData(Uri.parse("mailto:decoejz@gmail.com"));
+        emailSend.setType("text/plain");
+        emailSend.putExtra(Intent.EXTRA_EMAIL, "wesleygas@al.insper.edu.br");
+        emailSend.putExtra(Intent.EXTRA_TEXT,"Isso é um email de teste para ver se chega alguma coisa");
+        startActivity(Intent.createChooser(emailSend,"mandando...."));
+
+        Intent intent = new Intent(this, NextDeliveryActivity.class);
         startActivity(intent);
         finish();
     }

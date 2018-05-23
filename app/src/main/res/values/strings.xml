@@ -4,6 +4,7 @@
     <string name="hint_password">Sua senha</string>
     <string name="login_button">Entrar</string>
     <string name="next_delivery_title">Sua próxima entrega</string>
+    <string name="compose_email">Compose Email</string>
 
     <!-- In case of input error -->
 
