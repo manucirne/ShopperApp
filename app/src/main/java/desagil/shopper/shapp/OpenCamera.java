@@ -21,11 +21,11 @@ public class OpenCamera extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
-        openMainActivity();
+        openSignatureActivity();
         finish();
     }
 
-    private void openMainActivity() {
+    public void sendEmail(){
         Log.i("Send Email","email teste");
         Intent emailSend = new Intent(Intent.ACTION_SEND);
         emailSend.setData(Uri.parse("mailto:decoejz@gmail.com"));
@@ -33,23 +33,26 @@ public class OpenCamera extends AppCompatActivity {
         emailSend.putExtra(Intent.EXTRA_EMAIL, "wesleygas@al.insper.edu.br");
         emailSend.putExtra(Intent.EXTRA_TEXT,"Isso é um email de teste para ver se chega alguma coisa");
         startActivity(Intent.createChooser(emailSend,"mandando...."));
+    }
 
-        Intent intent = new Intent(this, NextDeliveryActivity.class);
+    private void openSignatureActivity() {
+        Intent intent = new Intent(this, SignatureActivity.class);
         startActivity(intent);
         finish();
     }
 
     private void openNextDeliveryActivity() {
-        // Exemplo de código para abrir uma activity. Especificamente, a SendActivity.
-        Intent intent = new Intent(this, MainActivity.class);//NextDeliveryActivity.class);
-        extras.putParcelable("imagebitmap", imageBitmap);
-        intent.putExtras(extras);
+        sendEmail();
+
+        Intent intent = new Intent(this, NextDeliveryActivity.class);
+//        extras.putParcelable("imagebitmap", imageBitmap);
+//        intent.putExtras(extras);
         startActivity(intent);
-        //Para receber em uma nova pagina
-        //Bundle extras = getIntent().getExtras();
-        //Bitmap bmp = (Bitmap) extras.getParcelable("imagebitmap");
-        //
-        //image.setImageBitmap(bmp );
+//        Para receber em uma nova pagina
+//        Bundle extras = getIntent().getExtras();
+//        Bitmap bmp = (Bitmap) extras.getParcelable("imagebitmap");
+//
+//        image.setImageBitmap(bmp );
         finish();
     }
 
