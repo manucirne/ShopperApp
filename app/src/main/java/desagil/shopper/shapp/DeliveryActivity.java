@@ -43,6 +43,14 @@ public class DeliveryActivity extends AppCompatActivity {
         finish();
     }
 
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
+
+    private void showWarning(String message){
+        Utils.showToast(this, message);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,9 +77,14 @@ public class DeliveryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                boxes = editboxes.getText().toString();
-                editboxes.setText(boxes);
-                openOpenSingnature(boxes);
+                if (isEmpty(editboxes)==false){
+                    boxes = editboxes.getText().toString();
+                    editboxes.setText(boxes);
+                    openOpenSingnature(boxes);
+                }
+                else{
+                    showWarning("Por favor insira o número de caixas");
+                }
 
             }
 
