@@ -12,16 +12,17 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".OpenCamera"></activity>
         <activity android:name=".JumpActivity"></activity>
-        <activity android:name=".DeliveryActivity"></activity>
-        <activity android:name=".SignatureActivity"></activity>
-        <activity android:name=".NextDeliveryActivity"></activity>
-
+        <activity android:name=".DeliveryActivity"
+            android:parentActivityName=".NextDeliveryActivity"></activity>
+        <activity android:name=".SignatureActivity"
+            android:parentActivityName=".DeliveryActivity"></activity>
+        <activity android:name=".NextDeliveryActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
     <!--Pedindo a permissão da camera-->
@@ -35,5 +36,4 @@
 
     <!--Garante que a camera usará o flash-->
     <uses-feature android:name="android.hardware.camera.flash" /> <!--Ver se ela vai usar o flash sempre ou so quando precisar-->
-
 </manifest>
