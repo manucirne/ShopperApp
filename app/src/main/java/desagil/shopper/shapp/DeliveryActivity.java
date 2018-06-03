@@ -28,7 +28,6 @@ public class DeliveryActivity extends AppCompatActivity {
         finish();
     }
 
-
     private void openPassActivity() {
         Intent intent = new Intent(this, JumpActivity.class);
         startActivity(intent);
@@ -48,10 +47,12 @@ public class DeliveryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final TextView clientname = (TextView) findViewById(R.id.clientname);
         final TextView clientadress = (TextView) findViewById(R.id.clientadress);
         final EditText editboxes = (EditText) findViewById(R.id.boxes);
-
 
         Intent intent = getIntent();
         nameC = intent.getStringExtra("name");
@@ -61,8 +62,6 @@ public class DeliveryActivity extends AppCompatActivity {
 
         Button buttonentrega = (Button) findViewById(R.id.entrega);
         Button buttonpass = (Button) findViewById(R.id.pass);
-
-
 
         buttonentrega.setOnClickListener(new View.OnClickListener() {
            // String meio = editboxes.getText().toString();
@@ -82,12 +81,7 @@ public class DeliveryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openPassActivity();
-
-
             }
-
         });
-
-
     }
 }

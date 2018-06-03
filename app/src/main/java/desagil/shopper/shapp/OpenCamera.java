@@ -61,6 +61,8 @@ public class OpenCamera extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Button buttonPhoto = (Button)findViewById(R.id.button_photo);
         buttonPhotoImage = (ImageButton) findViewById(R.id.image_button);//ImageButton
         Button buttonFinish = (Button)findViewById(R.id.button_finish);

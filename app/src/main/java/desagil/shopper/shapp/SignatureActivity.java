@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 public class SignatureActivity extends AppCompatActivity {
 
-
-
     //função para ir para OpenCamera
     private void openOpenCamera() {
         // Exemplo de código para abrir uma activity.
@@ -27,10 +25,10 @@ public class SignatureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signature);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         String caixas = intent.getStringExtra("boxes");
-
-
 
         //TODO: criar o botao de enviar no xml
         //criar botão para envair a justificativa

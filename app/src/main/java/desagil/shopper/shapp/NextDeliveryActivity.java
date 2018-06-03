@@ -14,6 +14,8 @@ public class NextDeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.next_delivery);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         ImageView map_image = (ImageView) findViewById(R.id.map_image);
 
         map_image.setOnClickListener(new View.OnClickListener() {

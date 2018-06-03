@@ -12,9 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
-
-
 public class JumpActivity extends AppCompatActivity {
     String justification = "";
 
@@ -36,11 +33,12 @@ public class JumpActivity extends AppCompatActivity {
         finish();
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jump);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button buttonSend = (Button) findViewById(R.id.button_send);
         Button buttonBack = (Button) findViewById(R.id.button_back);
@@ -49,8 +47,6 @@ public class JumpActivity extends AppCompatActivity {
         final EditText text = (EditText) findViewById(R.id.TextJustif);
         String justification = text.getText().toString();
 
-
-
         //Atividade do botão enviar - Vai para a página de próxima entrega:
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +54,6 @@ public class JumpActivity extends AppCompatActivity {
                 //aqui tem que fazer algo com a variavel justification - enviar para o servidor
                 //text.setText(justification);
                 openNextDeliveryActivity();  //NewDeliveryActivity - pag do wes (proxima entrega)
-
             }
         });
 
@@ -70,7 +65,6 @@ public class JumpActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }
 
