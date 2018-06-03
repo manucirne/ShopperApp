@@ -15,8 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OpenCamera"></activity>
-        <activity android:name=".JumpActivity"></activity>
+        <activity android:name=".OpenCamera"
+            android:parentActivityName=".SignatureActivity"></activity>
+        <activity android:name=".JumpActivity"
+            android:parentActivityName=".DeliveryActivity"></activity>
         <activity android:name=".DeliveryActivity"
             android:parentActivityName=".NextDeliveryActivity"></activity>
         <activity android:name=".SignatureActivity"
