@@ -25,16 +25,6 @@ public class OpenCamera extends AppCompatActivity {
         finish();
     }
 
-    public void sendEmail(){
-        Log.i("Send Email","email teste");
-        Intent emailSend = new Intent(Intent.ACTION_SEND);
-        emailSend.setData(Uri.parse("mailto:decoejz@gmail.com"));
-        emailSend.setType("text/plain");
-        emailSend.putExtra(Intent.EXTRA_EMAIL, "wesleygas@al.insper.edu.br");
-        emailSend.putExtra(Intent.EXTRA_TEXT,"Isso é um email de teste para ver se chega alguma coisa");
-        startActivity(Intent.createChooser(emailSend,"mandando...."));
-    }
-
     private void openSignatureActivity() {
         Intent intent = new Intent(this, SignatureActivity.class);
         startActivity(intent);
@@ -42,8 +32,6 @@ public class OpenCamera extends AppCompatActivity {
     }
 
     private void openNextDeliveryActivity() {
-        sendEmail();
-
         Intent intent = new Intent(this, NextDeliveryActivity.class);
 //        extras.putParcelable("imagebitmap", imageBitmap);
 //        intent.putExtras(extras);
