@@ -9,22 +9,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".OpenCamera"
-            android:parentActivityName=".SignatureActivity"></activity>
+            android:parentActivityName=".SignatureActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".JumpActivity"
-            android:parentActivityName=".DeliveryActivity"></activity>
+            android:parentActivityName=".DeliveryActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".DeliveryActivity"
-            android:parentActivityName=".NextDeliveryActivity"></activity>
+            android:parentActivityName=".NextDeliveryActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".SignatureActivity"
-            android:parentActivityName=".DeliveryActivity"></activity>
+            android:parentActivityName=".DeliveryActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name=".NextDeliveryActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
     <!--Pedindo a permissão da camera-->
