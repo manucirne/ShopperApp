@@ -1,17 +1,40 @@
 package desagil.shopper.shapp;
 
+import android.graphics.Bitmap;
+
 public class Data {
 
-    //nome da pessoa
-    //imagem
-    //numero de caixas
+    private String name;
+    private String boxNum;
+    private Bitmap imageBoxes;
+    //TODO: Falta receber a assinatura
 
-    public data(){}
+    public void setName(String newName){
+        name = newName;
+    }
 
-    public void setName(){}
+    public void setNumBoxes(String num){
+        boxNum = num;
+    }
 
-    public void setNumBoxes(int num){}
+    public void setPhoto(Bitmap image){
+        imageBoxes = image;
+    }
 
-    public void setPhoto(){}
+    //TODO: Criar um setter para a assinatura
+
+    public String getUserName(){
+        return name;
+    }
+
+    public String getNumBoxes(){
+        return boxNum;
+    }
+
+    public Bitmap getPhoto(){
+        return imageBoxes;
+    }
+
+    //TODO: Criar um getter para a assinatura
 
 }

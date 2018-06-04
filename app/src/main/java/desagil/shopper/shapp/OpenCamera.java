@@ -16,6 +16,8 @@ public class OpenCamera extends AppCompatActivity {
     Bundle extras = new Bundle();
     Bitmap imageBitmap;
     ImageButton buttonPhotoImage;
+    Data dataSend = new Data();
+    DataProcess sendInfo = new DataProcess();
 
     public void onBackPressed() {
         super.onBackPressed();
@@ -31,6 +33,7 @@ public class OpenCamera extends AppCompatActivity {
 
     private void openNextDeliveryActivity() {
         Intent intent = new Intent(this, NextDeliveryActivity.class);
+        createJSON();
 //        extras.putParcelable("imagebitmap", imageBitmap);
 //        intent.putExtras(extras);
         startActivity(intent);
@@ -40,6 +43,16 @@ public class OpenCamera extends AppCompatActivity {
 //
 //        image.setImageBitmap(bmp );
         finish();
+    }
+
+    private void createJSON(){
+        Intent intent = getIntent();
+        String numBoxes = intent.getStringExtra("boxes");
+
+        dataSend.setNumBoxes(numBoxes);
+        dataSend.setName(sendInfo.getName());
+        dataSend.setPhoto(imageBitmap);
+        sendInfo.sendData(dataSend);
     }
 
     @Override
