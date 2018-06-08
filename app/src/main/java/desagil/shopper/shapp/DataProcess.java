@@ -26,6 +26,8 @@ public class DataProcess {
 
     public void sendJustify(){}
 
+    //Code from: http://androidapplicationdeveloper.weebly.com/android-tutorial/how-to-convert-bitmap-to-string-and-string-to-bitmap
+    //Last access june-07-2018
     private String BitmapToString(Bitmap bitmap){
         ByteArrayOutputStream baos = new  ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
