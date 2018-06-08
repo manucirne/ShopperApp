@@ -16,8 +16,8 @@ public class OpenCamera extends AppCompatActivity {
     Bundle extras = new Bundle();
     Bitmap imageBitmap;
     ImageButton buttonPhotoImage;
-    Data dataSend = new Data();
-    DataProcess sendInfo = new DataProcess();
+    Data data = new Data();
+    DataProcess dataProcess = new DataProcess();
 
     public void onBackPressed() {
         super.onBackPressed();
@@ -49,10 +49,10 @@ public class OpenCamera extends AppCompatActivity {
         Intent intent = getIntent();
         String numBoxes = intent.getStringExtra("boxes");
 
-        dataSend.setNumBoxes(numBoxes);
-        dataSend.setName(sendInfo.getName());
-        dataSend.setPhoto(imageBitmap);
-        sendInfo.sendData(dataSend);
+        data.setNumBoxes(numBoxes);
+        data.setName(dataProcess.getName());
+        data.setPhoto(imageBitmap);
+        dataProcess.sendData(data);
     }
 
     @Override

@@ -8,6 +8,7 @@ public class Data {
     private String boxNum;
     private Bitmap imageBoxes;
     //TODO: Falta receber a assinatura
+    private String justify;
 
     public void setName(String newName){
         name = newName;
@@ -23,6 +24,10 @@ public class Data {
 
     //TODO: Criar um setter para a assinatura
 
+    public void setJustify(String newJustify){
+        justify = newJustify;
+    }
+
     public String getUserName(){
         return name;
     }
@@ -36,5 +41,9 @@ public class Data {
     }
 
     //TODO: Criar um getter para a assinatura
+
+    public String getJustify(){
+        return justify;
+    }
 
 }
