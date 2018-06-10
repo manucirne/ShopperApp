@@ -29,9 +29,13 @@ public class DataProcess extends Activity{
         return "name";
     }
 
-    public void getAddress(){}
+    public void getAddress(){
 
-    public void getNumBoxes(){}
+    }
+
+    public void getNumBoxes(){
+
+    }
 
     public void getId(){}//Se tiver!
 
@@ -39,13 +43,13 @@ public class DataProcess extends Activity{
         String userName = infos.getUserName();
         String numBoxes = infos.getNumBoxes();
         String photoImage = BitmapToString(infos.getPhoto());
-        String userSignature = BitmapToString(infos.getSignature());
+        //String userSignature = BitmapToString(infos.getSignature());
 
         try {
             deliveryInformation.put("Nome", userName);
             deliveryInformation.put("Quantidade de caixas recebidas", numBoxes);
             deliveryInformation.put("Foto da entrega", photoImage);
-            deliveryInformation.put("Assinatura do cliente", userSignature);
+            //deliveryInformation.put("Assinatura do cliente", userSignature);
         }
         catch (JSONException e){
             e.printStackTrace();
@@ -55,11 +59,11 @@ public class DataProcess extends Activity{
         editor = sharedPreferences.edit();
 
         editor.putString("deliveryJSON", stringfiedJSON);
-        editor.commit();
+        editor.apply();
 
         //Test of the stored JSON file
 
-        String jsonRecov = sharedPreferences.getString("deliveryJSON","");
+        String jsonRecov = sharedPreferences.getString("deliveryJSON","{}");
         System.out.println(jsonRecov);
 
     }
@@ -70,11 +74,19 @@ public class DataProcess extends Activity{
 
         try {
             deliveryInformation.put("Nome", userName);
-            deliveryInformation.put("Justificativa da falta de entrega", userJustify);
+            deliveryInformation.put("Justificativa", userJustify);
         }
         catch (JSONException e){
             e.printStackTrace();
         }
+        stringfiedJSON = deliveryInformation.toString();
+        sharedPreferences = context.getSharedPreferences("SHOPPER_APP", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.putString("Justifications", stringfiedJSON);
+        editor.apply();
+
+        System.out.println(sharedPreferences.getString("Justifications","{}"));
     }
 
     //Code from: http://androidapplicationdeveloper.weebly.com/android-tutorial/how-to-convert-bitmap-to-string-and-string-to-bitmap

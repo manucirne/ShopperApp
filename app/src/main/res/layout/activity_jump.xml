@@ -51,10 +51,11 @@
             android:id="@+id/TextJustif"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
             android:text=""
-            android:textSize="20pt" />
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            tools:text="destinatário desconhecido no endereço" />
 
         <Button
             android:id="@+id/button_send"

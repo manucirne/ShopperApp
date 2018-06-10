@@ -1,9 +1,12 @@
 package desagil.shopper.shapp;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class OpenCamera extends AppCompatActivity {
+
+    Context context = this;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     Bundle extras = new Bundle();
@@ -36,6 +41,7 @@ public class OpenCamera extends AppCompatActivity {
         createJSON();
 //        extras.putParcelable("imagebitmap", imageBitmap);
 //        intent.putExtras(extras);
+        intent.putExtra("ShowToast","Entrega finalizada com sucesso!");
         startActivity(intent);
 //        Para receber em uma nova pagina
 //        Bundle extras = getIntent().getExtras();
@@ -74,7 +80,15 @@ public class OpenCamera extends AppCompatActivity {
                     showWarning("É necessário uma foto para poder prosseguir");
                 }
                 else{
-                    openNextDeliveryActivity();
+                    final ProgressDialog progressDialog = ProgressDialog.show(context,"Enviando assinatura e foto", "Por favor, aguarde",true, true);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressDialog.cancel();
+                            openNextDeliveryActivity();
+                        }
+                    },3000);
                 }
             }
         });

@@ -19,7 +19,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="77dp"
-        android:background="#666666" />
+        android:background="#CCCCCC" />
 
     <Button
         android:id="@+id/clear_canvas_button"

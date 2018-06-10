@@ -35,7 +35,7 @@ public class SignatureActivity extends AppCompatActivity {
         Button buttonSend = (Button) findViewById(R.id.button_send);
         String texto = "Foram recebidos " + caixas + " volumes. Se você confirma assine abaixo:";
         //Texto antes da assinatura
-        final TextView text = (TextView) findViewById(R.id.text_send);
+        TextView text = (TextView) findViewById(R.id.text_send);
         text.setText(texto);
         //text += texto;
 

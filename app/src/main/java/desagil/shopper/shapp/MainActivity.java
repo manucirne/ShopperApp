@@ -1,8 +1,11 @@
 package desagil.shopper.shapp;
 
 import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,18 +13,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA = 0;
-
-
-    private void openCamera() {
-        //Para abrir a pagina em que a foto sera tirada
-        Intent intent = new Intent(this, OpenCamera.class);
-        startActivity(intent);
-        finish();
-    }
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +56,16 @@ public class MainActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
                 }
                 else if(credentials.equals("") && password.equals("")){
-                    openDeliveryActivity();
+                    final ProgressDialog progressDialog = ProgressDialog.show(context,"Logging in", "Por favor, aguarde",true, true);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressDialog.cancel();
+                            openDeliveryActivity();
+                        }
+                    },600);
+
                 }
                 else{
                     mostrarTorrada("Email e senha são vazios");
@@ -81,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
     private void mostrarTorrada(String message){
         Utils.showToast(this, message);
     }
+
+
 
     @Override
     public void onRequestPermissionsResult(int request, String[] permissions, int[] results) {

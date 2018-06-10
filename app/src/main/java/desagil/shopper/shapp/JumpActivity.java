@@ -1,20 +1,24 @@
 package desagil.shopper.shapp;
 
-import android.Manifest;
+
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class JumpActivity extends AppCompatActivity {
-    String justification = "";
-
+    private String justification = "";
+    private String name = "";
+    Data data = new Data();
+    Context context = this;
+    DataProcess dataProcess = new DataProcess(context);
 
     //função para ir para DeliveryActivity
     private void openDeliveryActivity() {
@@ -29,6 +33,7 @@ public class JumpActivity extends AppCompatActivity {
     private void openNextDeliveryActivity() {
         // Exemplo de código para abrir uma activity.
         Intent intent = new Intent(this, NextDeliveryActivity.class);
+        intent.putExtra("ShowToast","Justificativa enviada com sucesso!");
         startActivity(intent);
         finish();
     }
@@ -45,15 +50,31 @@ public class JumpActivity extends AppCompatActivity {
 
         //para pegar a mensagem
         final EditText text = (EditText) findViewById(R.id.TextJustif);
-        String justification = text.getText().toString();
+
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences("SHOPPER_APP", Context.MODE_PRIVATE);
+        name = sharedPreferences.getString("Recipient", "Name");
+
 
         //Atividade do botão enviar - Vai para a página de próxima entrega:
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //aqui tem que fazer algo com a variavel justification - enviar para o servidor
-                //text.setText(justification);
-                openNextDeliveryActivity();  //NewDeliveryActivity - pag do wes (proxima entrega)
+                justification = text.getText().toString();
+                data.setJustify(justification);
+                data.setName(name);
+                dataProcess.sendJustify(data);
+                final ProgressDialog progressDialog = ProgressDialog.show(context,"Enviando justificativa", "Por favor, aguarde",true, true);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressDialog.cancel();
+                        openNextDeliveryActivity();  //NewDeliveryActivity - pag do wes (proxima entrega)
+                    }
+                },1500);
+
             }
         });
 

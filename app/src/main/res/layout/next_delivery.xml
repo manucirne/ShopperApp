@@ -56,6 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:contentDescription="client name"
+                    android:maxWidth="200dp"
                     app:layout_constraintStart_toEndOf="@+id/map_image"
                     app:layout_constraintTop_toTopOf="@+id/map_image"
                     tools:text="Pedro da Silva" />
@@ -68,6 +69,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:contentDescription="Client Address"
+                    android:maxWidth="200dp"
                     app:layout_constraintBottom_toTopOf="@+id/delivery_phone"
                     app:layout_constraintStart_toEndOf="@+id/map_image"
                     app:layout_constraintTop_toBottomOf="@+id/delivery_name"
@@ -79,6 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:contentDescription="Client phone number"
+                    android:maxWidth="200dp"
                     app:layout_constraintBottom_toBottomOf="@+id/map_image"
                     app:layout_constraintStart_toEndOf="@+id/map_image"
                     tools:text="(11) 99999-9999" />
