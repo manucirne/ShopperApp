@@ -17,7 +17,7 @@ public class OpenCamera extends AppCompatActivity {
     Bitmap imageBitmap;
     ImageButton buttonPhotoImage;
     Data data = new Data();
-    DataProcess dataProcess = new DataProcess();
+    DataProcess dataProcess = new DataProcess(this);
 
     public void onBackPressed() {
         super.onBackPressed();

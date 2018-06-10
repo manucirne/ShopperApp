@@ -3,9 +3,11 @@ package desagil.shopper.shapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class NextDeliveryActivity extends AppCompatActivity {
@@ -16,9 +18,17 @@ public class NextDeliveryActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ImageView map_image = (ImageView) findViewById(R.id.map_image);
+        CardView deliveryCard = findViewById(R.id.deliveryCard);
 
-        map_image.setOnClickListener(new View.OnClickListener() {
+        TextView deliveryName = findViewById(R.id.delivery_name);
+        TextView deliveryAddress = findViewById(R.id.delivery_address);
+        TextView deliveryPhone = findViewById(R.id.delivery_phone);
+
+        deliveryName.setText("João da Silva");
+        deliveryAddress.setText("Rua Quata 300");
+        deliveryPhone.setText("(11) 99999-9999");
+
+        deliveryCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDeliveryActivity();

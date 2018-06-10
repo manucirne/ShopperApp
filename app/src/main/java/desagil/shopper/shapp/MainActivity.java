@@ -63,34 +63,13 @@ public class MainActivity extends AppCompatActivity {
                     openDeliveryActivity();
                 }
                 else{
-                    mostrarTorrada("eh tudo vazio");
+                    mostrarTorrada("Email e senha são vazios");
                 }
 
             }
 
         });
-
-
-        //Button buttonOpenCamera = (Button) findViewById(R.id.open_camera_button);
-//
-//        buttonOpenCamera.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
-//                        == PackageManager.PERMISSION_DENIED) {
-//
-//                    String[] permissions = new String[1];
-//                    permissions[0] = Manifest.permission.CAMERA;
-//
-//                    ActivityCompat.requestPermissions(MainActivity.this, permissions, REQUEST_CAMERA);
-//                }
-//                else{
-//                    openCamera(); //O app esta usando o aplicativo camera ao inves de acessar a camera por si só
-//                }
-//            }
-//        });
-}
+        }
 
     //Todo: Criar a classe da Delivery Activity
     private void openDeliveryActivity(){
