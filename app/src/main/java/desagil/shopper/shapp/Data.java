@@ -7,7 +7,7 @@ public class Data {
     private String name;
     private String boxNum;
     private Bitmap imageBoxes;
-    //TODO: Falta receber a assinatura
+    private Bitmap Signature;
     private String justify;
 
     public void setName(String newName){
@@ -22,7 +22,9 @@ public class Data {
         imageBoxes = image;
     }
 
-    //TODO: Criar um setter para a assinatura
+    private void setSignature(Bitmap image){
+        Signature = image;
+    }
 
     public void setJustify(String newJustify){
         justify = newJustify;
@@ -40,7 +42,9 @@ public class Data {
         return imageBoxes;
     }
 
-    //TODO: Criar um getter para a assinatura
+    public Bitmap getSignature(){
+        return Signature;
+    }
 
     public String getJustify(){
         return justify;

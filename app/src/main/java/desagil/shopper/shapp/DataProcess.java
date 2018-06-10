@@ -36,24 +36,20 @@ public class DataProcess extends Activity{
     public void getId(){}//Se tiver!
 
     public void sendData(Data infos){
-
-
-
         String userName = infos.getUserName();
         String numBoxes = infos.getNumBoxes();
         String photoImage = BitmapToString(infos.getPhoto());
-        //String userSignature = SignatureToString();//TODO: Transformar em String a assinatura
+        String userSignature = BitmapToString(infos.getSignature());
 
         try {
             deliveryInformation.put("Nome", userName);
             deliveryInformation.put("Quantidade de caixas recebidas", numBoxes);
             deliveryInformation.put("Foto da entrega", photoImage);
-            //deliveryInformation.put("Assinatura do cliente", userSignature);
+            deliveryInformation.put("Assinatura do cliente", userSignature);
         }
         catch (JSONException e){
             e.printStackTrace();
         }
-        //TODO: Mandar o JSON para algum lugar
         stringfiedJSON = deliveryInformation.toString();
         sharedPreferences = context.getSharedPreferences("SHOPPER_APP",Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -90,7 +86,4 @@ public class DataProcess extends Activity{
         return Base64.encodeToString(arr, Base64.DEFAULT);
     }
 
-    private String SignatureToString(){
-        return "";
-    }
 }
