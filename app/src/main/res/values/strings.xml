@@ -10,5 +10,6 @@
 
     <string name="error_credential">Sua credencial deve conter 5 dígitos</string>
     <string name="error_password">Senha inválida, tente novamente</string>
+    <string name="dummy_address">R. Quatá, 300 - Vila Olimpia São Paulo - SP, 04546-042</string>
 
 </resources>

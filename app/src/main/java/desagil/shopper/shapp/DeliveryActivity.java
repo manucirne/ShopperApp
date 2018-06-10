@@ -1,6 +1,7 @@
 package desagil.shopper.shapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +13,7 @@ public class DeliveryActivity extends AppCompatActivity {
 
     //String boxes = "";
     String nameC = "";
-    String adressC = "";
+    String address = "";
     String boxes = "";
 
     public void onBackPressed(){
@@ -22,7 +23,7 @@ public class DeliveryActivity extends AppCompatActivity {
     }
 
     private void openNewDeliveryActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, NextDeliveryActivity.class);
         startActivity(intent);
 
         finish();
@@ -64,10 +65,19 @@ public class DeliveryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         nameC = intent.getStringExtra("name");
-        adressC = intent.getStringExtra("adress");
+        address = intent.getStringExtra("address");
         clientname.setText(nameC);
-        clientadress.setText(adressC);
+        clientadress.setText(address);
 
+        clientadress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
         Button buttonentrega = (Button) findViewById(R.id.entrega);
         Button buttonpass = (Button) findViewById(R.id.pass);
 
@@ -77,7 +87,7 @@ public class DeliveryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if (isEmpty(editboxes)==false){
+                if (!isEmpty(editboxes)){
                     boxes = editboxes.getText().toString();
                     editboxes.setText(boxes);
                     openOpenSingnature(boxes);

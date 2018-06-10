@@ -1,6 +1,7 @@
 package desagil.shopper.shapp;
 
 import android.content.Intent;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -25,7 +26,7 @@ public class NextDeliveryActivity extends AppCompatActivity {
         TextView deliveryPhone = findViewById(R.id.delivery_phone);
 
         deliveryName.setText("João da Silva");
-        deliveryAddress.setText("Rua Quata 300");
+        deliveryAddress.setText("R. Quatá, 300 - Vila Olimpia São Paulo - SP, 04546-042");
         deliveryPhone.setText("(11) 99999-9999");
 
         deliveryCard.setOnClickListener(new View.OnClickListener() {
@@ -40,8 +41,9 @@ public class NextDeliveryActivity extends AppCompatActivity {
 
     private void openDeliveryActivity(){
         Intent intent = new Intent(this, DeliveryActivity.class);
-        intent.putExtra("address","R.Evans, 130");
+        intent.putExtra("address","R.Quata, 300");
         intent.putExtra("phone", "(11)97070-7070");
+        intent.putExtra("name","João da Silva");
         startActivity(intent);
 
         finish();
