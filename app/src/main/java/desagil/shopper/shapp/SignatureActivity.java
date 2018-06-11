@@ -8,9 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class SignatureActivity extends AppCompatActivity {
 
     Data data = new Data();
+    String text_signature;
 
     //função para ir para OpenCamera
     private void openOpenCamera() {
@@ -32,14 +35,20 @@ public class SignatureActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signature);
 
         Intent intent = getIntent();
-        String caixas = intent.getStringExtra("boxes");
+        String volumes = intent.getStringExtra("boxes");
 
         //criar botão para envair a justificativa
         Button buttonSend = (Button) findViewById(R.id.button_send);
-        String texto = "Foram recebidos " + caixas + " volumes. Se você confirma assine abaixo:";
-        //Texto antes da assinatura
+        Boolean trueFalse = Objects.equals(volumes, new String("1"));
+        if(trueFalse){
+            text_signature = "Foi recebido " + volumes + " volume. Se você confirma assine abaixo:";
+        }
+        else {
+            text_signature = "Foram recebidos " + volumes + " volumes. Se você confirma assine abaixo:";
+        }
+        //text_signature antes da assinatura
         TextView text = (TextView) findViewById(R.id.text_send);
-        text.setText(texto);
+        text.setText(text_signature);
 
         openSignature = (OpenSignature) findViewById(R.id.signature);
 

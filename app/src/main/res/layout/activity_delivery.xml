@@ -53,7 +53,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
-        android:hint="Quantas caixas estão sendo entregues?"
+        android:hint="Quantos volumes estão sendo entregues?"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

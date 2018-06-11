@@ -91,7 +91,7 @@ public class DeliveryActivity extends AppCompatActivity {
                     openOpenSingnature(boxes);
                 }
                 else{
-                    showWarning("Por favor insira o número de caixas");
+                    showWarning("Por favor insira o número de volumes");
                 }
 
             }
