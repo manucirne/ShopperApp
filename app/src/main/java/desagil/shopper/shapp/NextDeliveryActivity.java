@@ -18,8 +18,6 @@ public class NextDeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.next_delivery);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         CardView deliveryCard = findViewById(R.id.deliveryCard);
 
         Intent intent = getIntent();
