@@ -57,8 +57,6 @@ public class DeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         final TextView clientname = (TextView) findViewById(R.id.clientname);
         final TextView clientadress = (TextView) findViewById(R.id.clientadress);
         final EditText editboxes = (EditText) findViewById(R.id.boxes);
