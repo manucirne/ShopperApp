@@ -42,9 +42,7 @@ public class JumpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jump);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        
         Button buttonSend = (Button) findViewById(R.id.button_send);
         Button buttonBack = (Button) findViewById(R.id.button_back);
 
