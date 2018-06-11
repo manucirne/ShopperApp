@@ -10,12 +10,18 @@ import android.widget.TextView;
 
 public class SignatureActivity extends AppCompatActivity {
 
+    Data data = new Data();
+
     //função para ir para OpenCamera
     private void openOpenCamera() {
         // Exemplo de código para abrir uma activity.
         Intent intent = new Intent(this, OpenCamera.class);
         startActivity(intent);
         finish();
+    }
+
+    private void showWarning(String message){
+        Utils.showToast(this, message);
     }
 
     private OpenSignature openSignature;
@@ -25,21 +31,16 @@ public class SignatureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signature);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Intent intent = getIntent();
         String caixas = intent.getStringExtra("boxes");
 
-        //TODO: criar o botao de enviar no xml
         //criar botão para envair a justificativa
         Button buttonSend = (Button) findViewById(R.id.button_send);
         String texto = "Foram recebidos " + caixas + " volumes. Se você confirma assine abaixo:";
         //Texto antes da assinatura
         TextView text = (TextView) findViewById(R.id.text_send);
         text.setText(texto);
-        //text += texto;
 
-        //TODO: fazer a parte de pegar assinatura:
         openSignature = (OpenSignature) findViewById(R.id.signature);
 
         Button clear_signature = (Button) findViewById((R.id.clear_canvas_button));
@@ -55,8 +56,13 @@ public class SignatureActivity extends AppCompatActivity {
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //aqui tem que fazer algo com a assinatura p enviar para o servidos
-                openOpenCamera();
+                if (OpenSignature.getBitmap()==null){
+                    showWarning("É necessário uma assinatura para poder prosseguir");
+                }
+                else {
+                    data.setSignature(OpenSignature.getBitmap());
+                    openOpenCamera();
+                }
             }
 
         });
@@ -64,8 +70,4 @@ public class SignatureActivity extends AppCompatActivity {
     public void clearCanvas(View v){
         openSignature.clearCanvas();
     }
-
-    ////
-
-
 }

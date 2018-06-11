@@ -17,23 +17,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 
-
-
-
 public class OpenSignature extends View {
 
     public int width;
     public int height;
-    private Bitmap mBitmap;
+    private static Bitmap mBitmap;
     private Canvas mCanvas;
     private Path mPath;
     private Paint mPaint;
     private float mX, mY;
     private static final float TOLERANCE = 5;
     Context context;
-
-
-
+    public static int noImage = 0;
 
     public OpenSignature(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -48,8 +43,6 @@ public class OpenSignature extends View {
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeWidth(4f);
     }
-
-
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -83,6 +76,7 @@ public class OpenSignature extends View {
     }
 
     public void clearCanvas() {
+        noImage=0;
         mPath.reset();
         invalidate();
     }
@@ -95,6 +89,8 @@ public class OpenSignature extends View {
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
         float y = event.getY();
+
+        noImage=1;
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
@@ -114,5 +110,12 @@ public class OpenSignature extends View {
         return true;
     }
 
-
+    public static Bitmap getBitmap(){
+        if (noImage==0){
+            return null;
+        }
+        else{
+            return mBitmap;
+        }
+    }
 }

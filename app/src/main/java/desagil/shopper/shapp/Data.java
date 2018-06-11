@@ -22,7 +22,7 @@ public class Data {
         imageBoxes = image;
     }
 
-    private void setSignature(Bitmap image){
+    public void setSignature(Bitmap image){
         Signature = image;
     }
 
@@ -49,5 +49,4 @@ public class Data {
     public String getJustify(){
         return justify;
     }
-
 }
